@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    void sieve() {}
+
+    vector<int> findPrimeFactors(int N) {
+vector<int>Factors;
+        
+        
+        while(N % 2==0) {
+        Factors.push_back(2);
+            N/=2;
+        }
+        for (int i=3; i*i<=N; i+=2) {
+            while (N%i==0) {
+                Factors.push_back(i);
+                N/=i;
+            }
+        }
+        if(N>2){
+            Factors.push_back(N);
+        }
+        return Factors;
+    
+    }
+};
