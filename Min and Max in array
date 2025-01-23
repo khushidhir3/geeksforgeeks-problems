@@ -1,0 +1,9 @@
+class Solution {
+  public:
+    pair<int, int> getMinMax(vector<int> arr) {
+        // code here
+        int maxElement=*max_element(arr.begin(),arr.end());
+        int minElement=*min_element(arr.begin(),arr.end());
+        return {minElement,maxElement};
+    }
+};
