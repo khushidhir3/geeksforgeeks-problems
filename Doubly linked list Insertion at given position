@@ -1,0 +1,37 @@
+class Solution {
+  public:
+    Node* addNode(Node* head, int pos, int data) {
+        Node* newNode = new Node(data);
+        
+        if (pos == 0) {
+            newNode->next = head;
+            if (head != nullptr) {
+                head->prev = newNode;
+            }
+            return newNode;
+        }
+        
+        Node* temp = head;
+        int count = 0;
+        
+        while (temp != nullptr && count < pos) {
+            temp = temp->next;
+            count++;
+        }
+        
+        if (temp == nullptr) {
+            return head;
+        }
+        
+        newNode->next = temp->next;
+        newNode->prev = temp;
+        
+        if (temp->next != nullptr) {
+            temp->next->prev = newNode;
+        }
+        
+        temp->next = newNode;
+        
+        return head;
+    }
+};
